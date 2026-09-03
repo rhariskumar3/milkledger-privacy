@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Milk Ledger</title>
+  <meta name="description" content="Privacy policy for Milk Ledger, an offline-only Android app for tracking daily milk purchases. No account, no internet permission, no data collection." />
+  <link rel="stylesheet" href="_style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">Milk<span>Ledger</span></div>
+  <p>Privacy Policy</p>
+</header>
+
+<nav>
+  <a href="./" aria-current="page">Privacy</a>
+  <a href="./terms.html">Terms</a>
+  <a href="./delete-data.html">Delete data</a>
+</nav>
+
+<main>
+  <span class="updated">Last updated: 3 September 2026</span>
+
+  <div class="summary-cards">
+    <div class="card">
+      <div class="icon">🚫</div>
+      <h3>No data collected</h3>
+      <p>We collect nothing. There is no server to send it to.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📵</div>
+      <h3>No internet permission</h3>
+      <p>The app cannot reach the network. Not restricted — absent.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔐</div>
+      <h3>No account</h3>
+      <p>No sign-up, no email, no login of any kind.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>No ads or analytics</h3>
+      <p>No advertising, no tracking, no crash reporting.</p>
+    </div>
+  </div>
+
+  <h2>📋 Overview</h2>
+  <p>
+    Milk Ledger is an offline-only Android app for recording daily milk purchases from a local
+    vendor and settling up with them. It is developed by an independent developer and is
+    provided free of charge.
+  </p>
+  <p>
+    <strong>Milk Ledger does not collect, transmit, sell or share any personal data.</strong>
+    This is not a policy choice that could quietly change in an update — the app ships without
+    the Android <code>INTERNET</code> permission, so it is technically incapable of sending your
+    information anywhere. You can verify this yourself: the app's own
+    <em>Privacy &amp; about</em> screen states <em>Network access: None</em>, and Android will
+    show you the app's permissions at any time.
+  </p>
+
+  <h2>💾 Data stored on your device</h2>
+  <p>
+    Everything you enter is written to a database in the app's private storage on your phone.
+    No other app can read it, and it never leaves the device except through the backup you
+    control (see below).
+  </p>
+  <table>
+    <thead>
+      <tr><th>What</th><th>Why it exists</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Milk purchases — quantity, milk type, rate, date and time</td><td>The ledger itself</td></tr>
+      <tr><td>Payments — amount, date, the billing period it settles, an optional note</td><td>To work out what you still owe</td></tr>
+      <tr><td>Milk types — name, price per litre, default quantity</td><td>So a purchase can be recorded in one tap</td></tr>
+      <tr><td>Vendors — name and phone number that <em>you</em> type in</td><td>For the call button, the UPI hand-off and statements</td></tr>
+      <tr><td>Your name, if you choose to enter one</td><td>It appears on statements you share. It is optional and can be left blank</td></tr>
+      <tr><td>Settings — billing day, language, display preferences</td><td>To keep the app working the way you set it</td></tr>
+    </tbody>
+  </table>
+  <p>
+    We do not request or store your location, contacts, photos, camera, microphone, calendar,
+    device identifiers, advertising ID or any account information.
+  </p>
+
+  <h2>☁️ Android backup</h2>
+  <p>
+    Android's own backup service may include the app's database in your device backup, so a new
+    phone can restore your ledger. This is a Google platform feature that <strong>you</strong>
+    control in your device settings, not something Milk Ledger performs or can read. If you turn
+    device backup off, the app keeps working exactly as before — it never needs the backup to
+    function.
+  </p>
+  <p>
+    Where a backup is created, it is handled under
+    <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>. The developer of
+    Milk Ledger has no access to it.
+  </p>
+
+  <h2>🔗 When you hand off to another app</h2>
+  <p>
+    Milk Ledger has four buttons that open a different app that you already have installed. In
+    every case the hand-off only happens because you tapped it, and what you send is shown to
+    you first:
+  </p>
+  <ul>
+    <li><strong>Call vendor</strong> opens your dialer with the vendor's number pre-filled. The app has no permission to place a call itself.</li>
+    <li><strong>UPI payment</strong> opens your own UPI app with the vendor's number and the amount filled in. Milk Ledger does not process payments, does not see whether one succeeded, and never handles your bank or card details.</li>
+    <li><strong>SMS update</strong>, if you enable it for a vendor, opens your messaging app with a message prepared. <strong>You</strong> press send. The app holds no SMS permission and cannot send a message on its own.</li>
+    <li><strong>Share statement</strong> opens the Android share sheet so you can send a plain-text summary through whichever app you pick.</li>
+  </ul>
+  <div class="callout">
+    <p>
+      Once information reaches another app — your dialer, a UPI app, WhatsApp, your SMS app —
+      it is governed by <em>that</em> app's privacy policy, not this one.
+    </p>
+  </div>
+
+  <h2>🔑 Permissions explained</h2>
+  <p>The app's full permission list, and why each one is there:</p>
+  <table>
+    <thead>
+      <tr><th>Permission</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+        <td>So the optional monthly "delete old records" job survives a restart. Requested by Android's WorkManager library.</td>
+      </tr>
+      <tr>
+        <td><code>WAKE_LOCK</code></td>
+        <td>Lets that same job finish once it has started. Also from WorkManager.</td>
+      </tr>
+      <tr>
+        <td><code>FOREGROUND_SERVICE</code></td>
+        <td>Also from WorkManager, for long-running scheduled work.</td>
+      </tr>
+      <tr>
+        <td><code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code></td>
+        <td>An internal, signature-level permission added automatically by Google's AndroidX libraries. It is granted only to this app and is never shown to you.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Note what is <em>not</em> in that list: no <code>INTERNET</code>, no location, no contacts,
+    no storage, no SMS, no phone. All four permissions above are granted automatically and none
+    of them can access your data or the network.
+  </p>
+
+  <h2>🗑️ Deleting your data</h2>
+  <p>
+    Because your data only exists on your device, you delete it by deleting it there. Full
+    instructions are on the <a href="./delete-data.html">Delete data</a> page. In short:
+    uninstalling the app removes everything, and the app's own <em>Delete old records</em>
+    screen can clear settled history without touching what is still unpaid.
+  </p>
+
+  <h2>🧩 Third parties</h2>
+  <p>
+    <strong>There are none.</strong> Milk Ledger contains no advertising network, no analytics
+    SDK, no crash reporting service and no social media SDK. The only third-party code in the
+    app is Google's own AndroidX and Jetpack libraries, which run entirely on your device.
+  </p>
+
+  <h2>👶 Children's privacy</h2>
+  <p>
+    Milk Ledger is a household accounts tool intended for general audiences and is not directed
+    at children. Since the app collects no data from anyone, it collects no data from children
+    either.
+  </p>
+
+  <h2>📝 Changes to this policy</h2>
+  <p>
+    If this policy changes, the revised version will be published on this page with a new date
+    at the top. Any future change that would allow the app to transmit your data would require
+    adding the <code>INTERNET</code> permission, which Android shows you and which would be
+    stated here first.
+  </p>
+
+  <h2>✉️ Contact</h2>
+  <p>
+    Questions about this policy, or about the app: <a href="mailto:r.hariskumar3@gmail.com">r.hariskumar3@gmail.com</a>
+  </p>
+</main>
+
+<footer>
+  Milk Ledger — offline-only milk accounts.<br />
+  © 2026 Haris Kumar R. All rights reserved.
+</footer>
+
+</body>
+</html>
