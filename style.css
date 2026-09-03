@@ -32,7 +32,26 @@ header {
 
 header .logo { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
 header .logo span { color: var(--primary-container); }
-header p { margin-top: 8px; font-size: 0.95rem; opacity: 0.9; }
+header h1 {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* A heading that is read but not seen. Not display:none, which hides it from
+   screen readers too, and not width:0, which collapses the text. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 nav {
   background: var(--primary-dark);
